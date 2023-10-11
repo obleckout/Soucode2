@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Informações da Página</title>
+</head>
+<body>
+  <h1>Informações da Página</h1>
+
+  <p id="tamanhoTela">Tamanho da Tela:</p>
+  <p id="profundidadeCores">Profundidade de Cores:</p>
+  <p id="caminhoPorta">Caminho e Porta da Página:</p>
+  <p id="geolocalizacao">Geolocalização:</p>
+
+  <script>
+    // Informações sobre o tamanho da tela
+    const tamanhoTela = window.innerWidth + "x" + window.innerHeight;
+    document.getElementById("tamanhoTela").innerHTML += " " + tamanhoTela;
+
+    // Informações sobre a profundidade de cores
+    const profundidadeCores = screen.colorDepth;
+    document.getElementById("profundidadeCores").innerHTML += " " + profundidadeCores + " bits";
+
+    // Informações sobre o caminho e a porta da página
+    const caminhoPorta = window.location.pathname + ":" + window.location.port;
+    document.getElementById("caminhoPorta").innerHTML += " " + caminhoPorta;
+
+    // Informações de geolocalização (neste exemplo, verificamos se o navegador suporta geolocalização)
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        document.getElementById("geolocalizacao").innerHTML += " Lat: " + latitude + ", Long: " + longitude;
+      });
+    } else {
+      document.getElementById("geolocalizacao").innerHTML += " Geolocalização não suportada.";
+    }
+  </script>
+</body>
+</html>

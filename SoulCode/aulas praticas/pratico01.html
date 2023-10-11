@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Script JavaScript</title>
+</head>
+<body>
+  <h1>Manipulação de Elementos HTML com JavaScript</h1>
+
+  <!-- Conteúdos para serem manipulados -->
+  <p id="paragrafo">Este é um parágrafo.</p>
+  <ul>
+    <li id="item1">Item 1</li>
+    <li id="item2">Item 2</li>
+    <li id="item3">Item 3</li>
+  </ul>
+  <input type="text" id="campoTexto" placeholder="Digite algo">
+  <form id="formulario">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <br>
+    <label for="senha">Senha:</label>
+    <input type="password" id="senha" name="senha" required>
+    <br>
+    <button type="submit">Enviar</button>
+  </form>
+  <button id="botao1">Botão 1</button>
+  <button id="botao2">Botão 2</button>
+
+  <script>
+    // Extrair conteúdo de tags diferentes e aplicar em tags com INNER HTML
+    document.getElementById("paragrafo").innerHTML = "Este parágrafo foi atualizado com JavaScript.";
+    document.getElementById("item1").innerHTML = "Item Atualizado";
+    document.getElementById("item2").innerHTML = "Item Atualizado";
+    document.getElementById("item3").innerHTML = "Item Atualizado";
+
+    // Validador de formulários simples
+    document.getElementById("formulario").addEventListener("submit", function (event) {
+      event.preventDefault();
+      const email = document.getElementById("email").value;
+      const senha = document.getElementById("senha").value;
+
+      if (email.includes("@") && senha.length >= 6) {
+        alert("Formulário válido! Dados enviados.");
+      } else {
+        alert("Por favor, preencha o formulário corretamente.");
+      }
+    });
+
+    // Eventos de botões
+    document.getElementById("botao1").addEventListener("click", function () {
+      alert("Botão apertado!");
+    });
+
+    document.getElementById("botao2").addEventListener("click", function () {
+      alert("Botão 2 clicado!");
+    });
+  </script>
+</body>
+</html>
